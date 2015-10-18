@@ -103,6 +103,7 @@ with(AVG_Num_Step, plot(interval, steps, type = &quot;l&quot;))</code></pre>
 <h2>Imputing missing values</h2>
 <pre class="r"><code>NMissing &lt;- sum(is.na(act_data$steps))</code></pre>
 <p>Number of rows with missing values is 2304</p>
+<p>The Following part will impute missing data based on the mean for the corresponding 5-minute interval</p>
 <pre class="r"><code>act_data2 &lt;- ddply(act_data, &quot;interval&quot;, mutate, imputed_steps = impute(steps, mean))
 
 Tot_Num_Step2 &lt;- aggregate(imputed_steps ~ date, data = act_data2, sum, na.rm = TRUE)
