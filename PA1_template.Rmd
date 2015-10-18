@@ -63,7 +63,7 @@ NMissing <- sum(is.na(act_data$steps))
 Number of rows with missing values is `r NMissing`
 
 
-
+The Following part will impute missing data based on the mean for the corresponding 5-minute interval
 ```{r Imputing}
 act_data2 <- ddply(act_data, "interval", mutate, imputed_steps = impute(steps, mean))
 
